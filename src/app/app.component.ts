@@ -6,7 +6,7 @@ import { PrimeNGConfig } from 'primeng/api';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 import { Aura } from 'primeng/themes/aura';
-import { updatePrimaryPalette } from 'primeng/themes';
+import { definePreset, updatePrimaryPalette } from 'primeng/themes';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,27 @@ import { updatePrimaryPalette } from 'primeng/themes';
 export class AppComponent {
   constructor(private config: PrimeNGConfig) {
     this.config.theme.set({
-      preset: Aura,
+      preset: definePreset(Aura, {
+        semantic: {
+          primary: {
+            50: '{zinc.50}',
+            100: '{zinc.100}',
+            200: '{zinc.200}',
+            300: '{zinc.300}',
+            400: '{zinc.400}',
+            500: '{zinc.500}',
+            600: '{zinc.600}',
+            700: '{zinc.700}',
+            800: '{zinc.800}',
+            900: '{zinc.900}',
+            950: '{zinc.950}',
+          },
+        },
+      }),
+      cssLayer: {
+        name: 'primeng',
+        order: 'tailwind-base, primeng, tailwind-utilities',
+      },
     });
   }
 

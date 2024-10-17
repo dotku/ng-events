@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
+import { definePreset } from 'primeng/themes';
 import { Aura } from 'primeng/themes/aura';
 import { ToolbarModule } from 'primeng/toolbar';
 
@@ -13,13 +14,5 @@ import { ToolbarModule } from 'primeng/toolbar';
   styleUrl: './tool-bar.component.css',
 })
 export class ToolBarComponent {
-  constructor(private config: PrimeNGConfig) {
-    this.config.theme.set({
-      preset: Aura,
-      cssLayer: {
-        name: 'primeng',
-        order: 'tailwind-base, primeng, tailwind-utilities',
-      },
-    });
-  }
+  constructor(private config: PrimeNGConfig) {}
 }
